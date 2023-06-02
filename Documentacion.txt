@@ -1,0 +1,37 @@
+Este código utiliza la biblioteca tkinter para crear una interfaz gráfica de usuario (GUI) en Python. La GUI muestra un formulario de contratos con diferentes campos para que el usuario los complete. El código tiene algunas funciones y validaciones para asegurarse de que se ingresen todos los datos necesarios antes de continuar.
+
+A continuación, se presenta un resumen del código:
+
+Importación de bibliotecas:
+
+import tkinter as tk: Importa la biblioteca tkinter y la renombra como tk.
+from tkinter import messagebox: Importa la función messagebox de tkinter para mostrar mensajes emergentes.
+Carga de un documento de Word:
+
+doc = docx.Document("contrato1.docx"): Carga un archivo de documento de Word llamado "contrato1.docx" utilizando la biblioteca python-docx. Se asume que el archivo existe en el mismo directorio que el script.
+Creación de la ventana principal:
+
+ventana = tk.Tk(): Crea la ventana principal de la aplicación.
+ventana.title("Formulario De Contratos"): Establece el título de la ventana.
+ventana.geometry("500x450"): Establece las dimensiones de la ventana.
+ventana.resizable(False, False): Desactiva la capacidad de redimensionar la ventana.
+Función de limitación de caracteres:
+
+def limitar_caracteres(valor_ingresado): Esta función se utiliza para limitar la cantidad de caracteres que se pueden ingresar en los campos de entrada (Entry) del formulario. En este caso, limita la longitud a 8 caracteres.
+Etiquetas y campos de entrada del formulario:
+
+Se crean etiquetas (Label) y campos de entrada (Entry) para diferentes campos del formulario, como nombre, dirección, folio, fecha, teléfono, etc.
+Se utiliza la opción validate junto con la función limitar_caracteres para validar los caracteres ingresados en los campos de entrada.
+Función para imprimir el contenido del formulario:
+
+def imprimir_texto(): Esta función se ejecuta cuando se presiona un botón en el formulario. Obtiene los valores ingresados en los campos de entrada y realiza algunas validaciones.
+Si algún campo está vacío, muestra un mensaje de advertencia y una ventana emergente con un mensaje.
+Si todos los campos están completos, copia los valores ingresados en ciertas secciones del documento de Word cargado previamente.
+Creación de una nueva ventana:
+
+Después de completar el formulario y copiar los valores en el documento de Word, se crea una nueva ventana utilizando tk.Tk(). Esta ventana se utiliza para mostrar otro formulario relacionado con el "Scope of Work" (alcance del trabajo).
+Creación de botones de verificación:
+
+Se crean varios botones de verificación (Checkbutton) en la nueva ventana para diferentes conceptos relacionados con el alcance del trabajo.
+Los botones de verificación están asociados a variables (IntVar) y a la función checkbox_changed, que se ejecuta cuando se cambia el estado de los botones.
+En resumen, este código crea una interfaz gráfica de usuario para un formulario de contratos y permite al usuario ingresar información en los campos correspondientes. Luego, copia esa información en un documento de Word y muestra otro formulario para el alcance del trabajo.
